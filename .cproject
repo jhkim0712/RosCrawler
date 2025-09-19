@@ -49,6 +49,7 @@
 									<listOptionValue builtIn="false" value="../Hiwonder/Portings"/>
 									<listOptionValue builtIn="false" value="../Hiwonder/System"/>
 									<listOptionValue builtIn="false" value="../Hiwonder/USB_HOST"/>
+									<listOptionValue builtIn="false" value="../Middlewares/Third_Party/Lw"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.840470340" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -75,6 +76,7 @@
 									<listOptionValue builtIn="false" value="../Hiwonder/Portings"/>
 									<listOptionValue builtIn="false" value="../Hiwonder/System"/>
 									<listOptionValue builtIn="false" value="../Hiwonder/USB_HOST"/>
+									<listOptionValue builtIn="false" value="../Middlewares/Third_Party/Lw"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.580280799" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -152,6 +154,7 @@
 									<listOptionValue builtIn="false" value="../Hiwonder/Portings"/>
 									<listOptionValue builtIn="false" value="../Hiwonder/System"/>
 									<listOptionValue builtIn="false" value="../Hiwonder/USB_HOST"/>
+									<listOptionValue builtIn="false" value="../Middlewares/Third_Party/Lw"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.1034613673" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -177,6 +180,7 @@
 									<listOptionValue builtIn="false" value="../Hiwonder/Portings"/>
 									<listOptionValue builtIn="false" value="../Hiwonder/System"/>
 									<listOptionValue builtIn="false" value="../Hiwonder/USB_HOST"/>
+									<listOptionValue builtIn="false" value="../Middlewares/Third_Party/Lw"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.2133649835" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
