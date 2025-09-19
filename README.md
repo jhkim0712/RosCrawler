@@ -4,9 +4,16 @@ STM32F407VET6 기반 Hiwonder RRC Lite Controller 보드를 사용한 ROS 플랫
 
 ## 📋 프로젝트 개요
 
-본 취미용 프로젝트는 Hiwonder사의 RRC Lite Controller 보드(STM32F407VET6)를 기반으로 ROS(Robot Operating System) 플랫폼에서 동작하도록 구현된 크롤러 로봇 제어 펌웨어이다.
+본 취미용 프로젝트는 [Hiwonder사의 RRC Lite Controller 보드(STM32F407VET6)](https://www.hiwonder.com/products/rrc-lite?_pos=1&_sid=2ab1cad48&_ss=r)를 기반으로 ROS(Robot Operating System) 플랫폼에서 동작하도록 구현된 크롤러 로봇 제어 펌웨어이다.
 
 로봇 섀시는 2축 모터의 크롤러 프레임이 사용될 예정이며, vision과 각 센서들을 통해 SLAM 구현을 통해 자율주행이 목표임.
+
+### 보드 및 섀시 이미지
+
+![RRC Lite Controller](https://i.imgur.com/njfc9Bb.png)
+
+![2축 섀시시](https://i.imgur.com/LzlaGDa.png)
+
 
 ## 🛠 하드웨어 사양
 
@@ -15,6 +22,7 @@ STM32F407VET6 기반 Hiwonder RRC Lite Controller 보드를 사용한 ROS 플랫
 - **Flash**: 512KB
 - **Controller Board**: Hiwonder RRC Lite Controller
 - **RTOS**: FreeRTOS
+
 
 ## 📁 프로젝트 구조
 
