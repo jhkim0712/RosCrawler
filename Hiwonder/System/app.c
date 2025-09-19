@@ -75,10 +75,6 @@ void app_task_entry(void *argument)
 
 	osTimerStart(led_timerHandle, LED_TASK_PERIOD);
 
-	// 시스템 시작 멜로디 재생
-	osDelay(500);  // 시스템 안정화 대기
-	play_startup_melody();
-
 	osDelay(1000);	  // 延时1秒再亮(the LED lights up after a 1 second delay)
 	led_on(leds[0]);  // led亮(LED lights up)
 	osDelay(3000);	  // 延时3秒再灭(the LED turns off after a 3 second delay)

@@ -44,8 +44,5 @@ void set_chassis_type(uint8_t chassis_type);
 void change_battery_limit(uint16_t limit);
 void packet_init(void);
 
-// 부저 멜로디 함수 선언
-void play_startup_melody(void);
-
 #endif
 

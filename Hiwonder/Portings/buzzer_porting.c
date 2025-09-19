@@ -28,23 +28,6 @@
 #define NOTE_C5  523
 #define NOTE_OFF 0
 
-/* 멜로디 구조체 */
-typedef struct {
-    uint16_t frequency;
-    uint16_t duration;  // ms
-} melody_note_t;
-
-/* 시작 멜로디 (간단한 시작음) */
-static const melody_note_t startup_melody[] = {
-    {NOTE_C4, 150},
-    {NOTE_E4, 150},
-    {NOTE_G4, 150},
-    {NOTE_C5, 300},
-    {NOTE_OFF, 100},
-    {NOTE_G4, 200},
-    {NOTE_C5, 400},
-    {NOTE_OFF, 0}  // 종료 마커
-};
 
 /* 전역 변수 */
 BuzzerObjectTypeDef *buzzers[1];
@@ -54,18 +37,6 @@ static void buzzer1_set_pwm(BuzzerObjectTypeDef *self, uint32_t freq);      /* p
 static int put_ctrl_block(BuzzerObjectTypeDef *self, BuzzerCtrlTypeDef *p); /* 控制入队接口 */
 static int get_ctrl_block(BuzzerObjectTypeDef *self, BuzzerCtrlTypeDef *p); /* 控制出队接口 */
 
-/**
- * @brief 시작 멜로디 재생 함수
- * @retval None.
- */
-void play_startup_melody(void);
-
-/**
- * @brief 멜로디 재생 함수 (비동기)
- * @param melody 재생할 멜로디 배열 포인터
- * @retval None.
- */
-void play_melody_async(const melody_note_t *melody);
 
 /**
  * @brief 蜂鸣器相关的初始化
@@ -157,47 +128,3 @@ static int get_ctrl_block(BuzzerObjectTypeDef *self, BuzzerCtrlTypeDef *p)
   return (int)osMessageQueueGet(buzzer1_ctrl_ququeHandle, p, 0, 0);
 }
 
-/**
- * @brief 시작 멜로디 재생 함수
- * @retval None.
- */
-void play_startup_melody(void)
-{
-    if (buzzers[0] != NULL) {
-        play_melody_async(startup_melody);
-    }
-}
-
-/**
- * @brief 멜로디 재생 함수 (비동기)
- * @param melody 재생할 멜로디 배열 포인터
- * @retval None.
- */
-void play_melody_async(const melody_note_t *melody)
-{
-    BuzzerCtrlTypeDef buzzer_ctrl;
-    
-    // 멜로디의 각 음표를 부저 제어 큐에 추가
-    for (int i = 0; melody[i].frequency != NOTE_OFF || melody[i].duration != 0; i++) {
-        if (melody[i].frequency == NOTE_OFF) {
-            // 무음 (휴지)
-            buzzer_ctrl.freq = 0;
-            buzzer_ctrl.ticks_on = 0;
-            buzzer_ctrl.ticks_off = melody[i].duration;
-            buzzer_ctrl.repeat = 1;
-        } else {
-            // 음표 재생
-            buzzer_ctrl.freq = melody[i].frequency;
-            buzzer_ctrl.ticks_on = melody[i].duration;
-            buzzer_ctrl.ticks_off = 50;  // 음표 간 간격
-            buzzer_ctrl.repeat = 1;
-        }
-        
-        // 큐에 제어 블록 추가
-        if (buzzers[0]->put_ctrl_block(buzzers[0], &buzzer_ctrl) != 0) {
-            // 큐가 가득 찬 경우 잠시 대기
-            osDelay(10);
-            i--; // 다시 시도
-        }
-    }
-}
