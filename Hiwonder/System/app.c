@@ -69,25 +69,27 @@ void button_event_callback(ButtonObjectTypeDef *button,  ButtonEventIDEnum event
 
 void app_task_entry(void *argument)
 {
-    extern osTimerId_t led_timerHandle;
+	extern osTimerId_t led_timerHandle;
 
-    leds_init();
-    
-    osTimerStart(led_timerHandle, LED_TASK_PERIOD);
+	leds_init();
 
-    
-    osDelay(1000); //延时1秒再亮(the LED lights up after a 1 second delay)
-	  led_on(leds[0]);	 //led亮(LED lights up)
-	  osDelay(3000);     //延时3秒再灭(the LED turns off after a 3 second delay)
-	  led_off(leds[0]);	//LED灭(LED turns off)
-	  osDelay(3000);   
-	  led_flash(leds[0],200,200,0);	//LED闪烁（灭200ms，亮200ms）(LED flashing (on for 200ms, and off for 200ms))
-	  osDelay(3000);  
-	  led_off(leds[0]);	//LED灭(LED turns off)
-    
-    for(;;) {
-      osDelay(1000);
-    }
+	osTimerStart(led_timerHandle, LED_TASK_PERIOD);
+
+	// 시스템 시작 멜로디 재생
+	osDelay(500);  // 시스템 안정화 대기
+	play_startup_melody();
+
+	osDelay(1000);	  // 延时1秒再亮(the LED lights up after a 1 second delay)
+	led_on(leds[0]);  // led亮(LED lights up)
+	osDelay(3000);	  // 延时3秒再灭(the LED turns off after a 3 second delay)
+	led_off(leds[0]); // LED灭(LED turns off)
+	osDelay(3000);
+	led_flash(leds[0], 200, 200, 0); // LED闪烁（灭200ms，亮200ms）(LED flashing (on for 200ms, and off for 200ms))
+	osDelay(3000);
+	led_off(leds[0]); // LED灭(LED turns off)
+
+	for (;;)
+	{
+		osDelay(1000);
+	}
 }
-
-
