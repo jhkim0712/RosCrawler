@@ -14,12 +14,16 @@
 #include "usart.h"
 //#include "SEGGER_RTT.h"  // Disabled SEGGER_RTT
 
-#if __ARMCC_VERSION >= 6000000
+// Disable semihosting for different compilers
+#if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6000000)
     __asm(".global __use_no_semihosting");
-#elif __ARMCC_VERSION >= 5000000
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 5000000)
     #pragma import(__use_no_semihosting)
+#elif defined(__GNUC__)
+    // GNU GCC: Override system calls to disable semihosting
+    extern void initialise_monitor_handles(void);
 #else
-    #error Unsupported compiler
+    #warning "Unknown compiler - semihosting may not be properly disabled"
 #endif
 
 
@@ -54,5 +58,41 @@ int stdout_putchar (int ch)
     //SEGGER_RTT_Write(0, &ch, 1);
     return (ch);
 }
+
+// Additional system calls for GNU GCC newlib
+#ifdef __GNUC__
+int _write(int file, char *ptr, int len)
+{
+    for (int i = 0; i < len; i++) {
+        stdout_putchar(*ptr++);
+    }
+    return len;
+}
+
+int _read(int file, char *ptr, int len)
+{
+    return 0;
+}
+
+int _close(int file)
+{
+    return -1;
+}
+
+int _lseek(int file, int ptr, int dir)
+{
+    return 0;
+}
+
+int _fstat(int file, void *st)
+{
+    return 0;
+}
+
+int _isatty(int file)
+{
+    return 1;
+}
+#endif
 
 
