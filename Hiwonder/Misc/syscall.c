@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include "usart.h"
-#include "SEGGER_RTT.h"
+//#include "SEGGER_RTT.h"  // Disabled SEGGER_RTT
 
 #if __ARMCC_VERSION >= 6000000
     __asm(".global __use_no_semihosting");

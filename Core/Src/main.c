@@ -106,7 +106,7 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
   LOG_INIT();
-  SEGGER_RTT_Init();
+  //SEGGER_RTT_Init();  // Disabled SEGGER_RTT
   lwmem_assignmem(lwmem_regions);
   /* USER CODE END 1 */
 

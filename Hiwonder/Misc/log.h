@@ -21,7 +21,7 @@
 #define LOG_USE_RTT 0
 
 #if LOG_USE_RTT
-#include "SEGGER_RTT.h"
+//#include "SEGGER_RTT.h"  // Disabled SEGGER_RTT
 #endif
 
 enum log_level{
