@@ -18,7 +18,7 @@
 #define LOG_LEVEL_DEFAULT LOG_LEVEL_DEBUG
 #define LOG_PRINT_FILE_NAME 1
 #define LOG_ENABLE 1
-#define LOG_USE_RTT 1
+#define LOG_USE_RTT 0
 
 #if LOG_USE_RTT
 #include "SEGGER_RTT.h"

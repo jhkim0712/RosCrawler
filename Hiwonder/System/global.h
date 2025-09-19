@@ -42,6 +42,7 @@ extern SerialServoControllerTypeDef serial_servo_controller;
 
 void set_chassis_type(uint8_t chassis_type);
 void change_battery_limit(uint16_t limit);
+void packet_init(void);
 
 #endif
 

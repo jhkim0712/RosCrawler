@@ -30,6 +30,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "global.h"
 #include "lwmem_porting.h"
 #include "log.h"
 #include <stdio.h>
@@ -61,7 +62,6 @@ void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
 static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
-void packet_init(void);
 void i2c_scan(void)
 {
   uint8_t data;
