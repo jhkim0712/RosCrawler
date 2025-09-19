@@ -59,40 +59,7 @@ int stdout_putchar (int ch)
     return (ch);
 }
 
-// Additional system calls for GNU GCC newlib
-#ifdef __GNUC__
-int _write(int file, char *ptr, int len)
-{
-    for (int i = 0; i < len; i++) {
-        stdout_putchar(*ptr++);
-    }
-    return len;
-}
-
-int _read(int file, char *ptr, int len)
-{
-    return 0;
-}
-
-int _close(int file)
-{
-    return -1;
-}
-
-int _lseek(int file, int ptr, int dir)
-{
-    return 0;
-}
-
-int _fstat(int file, void *st)
-{
-    return 0;
-}
-
-int _isatty(int file)
-{
-    return 1;
-}
-#endif
+// Note: System calls (_write, _read, _close, etc.) are already defined 
+// in Core/Src/syscalls.c by STM32CubeIDE
 
 
