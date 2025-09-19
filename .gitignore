@@ -1,0 +1,62 @@
+# Build outputs
+Debug/
+Release/
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+*.su
+*.cyclo
+*.d
+
+# STM32CubeIDE
+.metadata/
+.settings/
+.project
+.cproject
+.mxproject
+
+# VS Code
+.vscode/
+
+# System files
+Thumbs.db
+.DS_Store
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Generated files
+*.bak
+*.orig
+
+# IDE specific files
+*.workspace
+*.uvguix
+*.uvoptx
+*.uvprojx
+
+# Flash tool files
+*.jlink
+*.cfg
+
+# Documentation build
+doc/html/
+doc/latex/
+
+# Backup files
+*_backup*
+*.backup
+
+# Core dumps
+core.*
