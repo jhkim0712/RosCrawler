@@ -7,10 +7,10 @@
 EncoderMotorObjectTypeDef *motors[4];
 /* static void packet_handler(struct PacketRawFrame *frame); */
 
-void motor1_set_pulse(EncoderMotorObjectTypeDef *self, int speed);
-void motor2_set_pulse(EncoderMotorObjectTypeDef *self, int speed);
-void motor3_set_pulse(EncoderMotorObjectTypeDef *self, int speed);
-void motor4_set_pulse(EncoderMotorObjectTypeDef *self, int speed);
+static void motor1_set_pulse(EncoderMotorObjectTypeDef *self, int speed);
+static void motor2_set_pulse(EncoderMotorObjectTypeDef *self, int speed);
+static void motor3_set_pulse(EncoderMotorObjectTypeDef *self, int speed);
+static void motor4_set_pulse(EncoderMotorObjectTypeDef *self, int speed);
 
 void set_motor_param(EncoderMotorObjectTypeDef *motor, int32_t tpc, float rps_limit, float kp, float ki, float kd)
 {

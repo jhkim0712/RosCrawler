@@ -3,7 +3,7 @@
 
 #include "global_conf.h"
 
-#include "SEGGER_RTT.h"
+//#include "SEGGER_RTT.h"
 #include "main.h"
 
 #include "stm32f4xx_hal.h"
